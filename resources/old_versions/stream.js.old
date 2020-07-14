@@ -1,0 +1,37 @@
+var bufferSize = 2048;
+var audioChunks = [];
+var recorderLength = 0;
+
+navigator.getUserMedia = ( navigator.getUserMedia ||
+                       navigator.webkitGetUserMedia ||
+                       navigator.mozGetUserMedia ||
+                       navigator.msGetUserMedia)
+
+navigator.getUserMedia(
+	{audio:true},
+	function (stream){
+		console.log("here");
+		audioContext = window.AudioContext || window.webkitAudioContext;
+		context = new audioContext();
+
+		sr = context.SampleRate;
+		volume = context.createGain();
+
+		audioInput = context.createMediaStreamSource(stream);
+		//audioInput = context.createOscillator(stream);
+		recorder = context.createScriptProcessor(bufferSize, 2, 2);
+		
+		recorder.onaudioprocess = function(stream){
+			var channel = stream.inputBuffer.getChannelData(0);
+			if (audioChunks.length < 100){
+				audioChunks.push(new Array (channel));
+				recorderLength += bufferSize;
+			}
+		}
+		volume.connect(recorder);
+		recorder.connect(context.destination);
+	},
+	function (e){
+		console.log(e);
+	}
+)

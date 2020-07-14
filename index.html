@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<head>
+	<link rel="stylesheet" href="resources/formants.css"></link>
+	<link rel="stylesheet" href="resources/node_modules/nouislider/distribute/nouislider.css"></link>
+	<script src="resources/stream_bundled.js"></script>
+	<title>
+		Formant Visualizer
+	</title>
+</head>
+<body>
+			<div class="hovernav">
+			<div class="navbar">
+				<div class="verticalLine"></div>
+				<div class="options">
+					<p class="navoptions" id="autotext">Smoothing</p>
+					<div class="description">
+					Adjusts the number of previous frames each measure is averaged against.<br><br>With the default value (2), each point is a weighted average of the current frame and the previous frame.
+					</div>
+				</div>
+				<div class="options">
+					<input type="number" id="smooth" min="0" placeholder="(e.g., 3)"></input>
+				</div>
+				<div class="options">
+					<p class="navoptions" id="autotext">LPC Order</p>
+					<div class="description">
+						LPC Analysis attempts to compute an appropriate <i>all-pole</i> filter for the signal.<br><br>This parameter adjusts the number of poles it searches for.
+					</div>
+				</div>
+				<div class="options">
+					<input type="number" id="order" min="0" placeholder="(e.g., 3)"></input>
+				</div>
+				<div class="options">
+					<p class="navoptions" id="autotext">Sampling Rate</p>
+					<div class="description">
+					Number of samples taken by your audio input per second.
+					</div>
+				</div>
+				<div class="options">
+					<p id='sr'>N/A</p>
+				</div>
+				<div class="tagline"><p>
+				Formant Visualizer - View F1 and F2 in real-time</p>
+				</div>
+			</div>
+	<div id="info_box">
+		<div id="f1">
+			<div class="name">F1</div>
+			<div id="f1values"></div>		
+		</div>
+		<div id="formantSpace">
+			<span id="dot"></span>
+		</div>
+		<div id="f2">
+			<div id="f2values"></div>		
+			<div class="name">F2</div>
+		</div>
+	</div>
+</body>

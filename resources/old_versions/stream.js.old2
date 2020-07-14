@@ -1,0 +1,40 @@
+var bufferSize = 2048;
+var audioChunks = [];
+var recorderLength = 0;
+var single;
+navigator.getUserMedia = ( navigator.getUserMedia ||
+                       navigator.webkitGetUserMedia ||
+                       navigator.mozGetUserMedia ||
+                       navigator.msGetUserMedia)
+
+navigator.getUserMedia(
+	{audio:true},
+	function (stream){
+
+	var options = {mimeType: "audio/webm;codecs=opus", audioBitsPerSecond:16000};
+	mediaRecorder = new MediaRecorder(stream, options);
+
+	var decoder = new OpusToPCM({
+		channels:1,
+		fallback:false,
+		});
+	decoder.on('decode', function(pcm){
+		console.log("here");
+		audioChunks.push(pcm);
+		return(1);
+		});
+
+	mediaRecorder.addEventListener("dataavailable", function(event) {
+		var reader = new FileReader();
+		reader.addEventListener("loadend", function() {
+			var int8View = new Int8Array(reader.result);
+			decoder.decode(int8View);
+		});
+		reader.readAsArrayBuffer(event.data);
+	});
+	mediaRecorder.start(200);
+	},
+	function (e){
+		console.log(e);
+	}
+)

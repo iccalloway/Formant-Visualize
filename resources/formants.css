@@ -1,0 +1,290 @@
+*{box-sizing:border-box;}
+body{
+	font-family: "Helvetica";
+	font-size: 1em;
+}
+
+#f1slider, #f2slider{
+	width: 600px;
+	height: 100%;
+}
+
+#sr{
+	font-size: 0.9em;
+	color:#666666;
+}
+
+#dot{
+	position:absolute;
+	height: 10px;
+	width:10px;
+	background-color: black;
+	border-radius: 50%;
+	left:50%;
+	top: 50%;
+}
+
+#info_box{
+	position: relative;
+	margin:0 auto;
+	top:200px;
+	height:600px;
+	width: 600px;
+}
+
+#formantSpace{
+	position: relative;
+	float:left;
+	height: 85%;
+	width: 85%;
+	border-style: solid;
+	border-color: black;
+	background-size: 10% 10%;
+	background-image:
+		linear-gradient(to right, grey 1px, transparent 1px),
+		linear-gradient(to bottom, grey 1px, transparent 1px);
+}
+
+#f1{
+	float:left;
+	height:86%;
+	width:15%;
+}
+
+#f2{
+	float:right;
+	height: 15%;
+	width: 87%;
+}
+
+.name{
+	color: #424949;
+	text-align:center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 1.5em;
+}
+
+#f1 > *{
+	width:50%;
+	height:100%;
+	float:left;
+	flex-direction: column;
+	display:flex;
+	justify-content:space-between;
+}
+#f2 > *{
+	width:100%;
+	height:50%;
+	float:left;
+	flex-direction: row;
+	display:flex;
+	justify-content:space-between;
+}
+
+#f2 > .name{
+	flex-direction: column;
+}
+#f1 > .name{
+	flex-direction: row; 
+}
+
+button {
+	border: none;
+	background-color:inherit;
+	cursor: pointer;
+	display:inline-block;
+}
+
+html, body{
+	height:100vh;
+	width:100vw;
+	margin: 0px;
+}
+
+
+.tagline:hover > .description, .options:hover > .description{
+	display:block;
+}
+
+.description{
+	font-style: normal;
+	position: absolute;
+	top:110%;
+	width:300px;
+	height:auto;
+	word-wrap:break-word;
+	white-space: pre-line;
+	box-shadow: 5px 5px 5px #cccccc;
+	color:#666666;
+	font-size:0.75em;
+	background-color:#FCFCEE;
+	line-height:1.5;	
+	text-align: justify;
+	border-left: 1px solid #deded3;
+	border-right: 1px solid #deded3;
+	border-top: 1px solid #deded3;
+	border-bottom: 1px solid #deded3;
+	padding: 7px;
+	display:none;
+}
+
+#bodybox{
+	/*position:absolute;
+	top:200px;
+	left:0;
+	right:0;*/
+	margin-left:auto;
+	margin-right:auto;
+	height:100%;
+	width:80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/*width:80vw;
+	height:900px;*/
+	
+}
+
+#autotext{
+	line-height:100%;
+}
+
+#font-resizer{
+	display:inline-block;
+	width:auto;
+	white-space:nowrap;
+}
+
+#smooth, #order{
+	width:60px;
+}
+
+.navbar{
+	position: absolute;
+	z-index:99;
+	min-width: 1300px;
+	min-height: 30px;
+	max-height: 40px;
+	top:0;
+	left:0;
+	right:0;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#FCFCEE;
+	height:6%;
+	width:70%;
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+	border-left:1px solid #deded3;
+	border-right:1px solid #deded3;
+	border-bottom:1px solid #deded3;
+	line-height: 40px;
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+	
+}
+
+.hovernav{
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	width:100%;
+	height:3%;
+	margin-left:auto;
+	margin-right:auto;
+}*/
+
+
+.verticalLine{
+	/*border-left: 1px solid #9a9a9a*/;
+	border-left: 1px solid #deded3;
+}
+
+
+.navoptions {
+	text-decoration:none;
+	color:#666666;
+	font-size:0.8em;
+	cursor: pointer;
+}
+
+.tagline{
+	font-style:italic;
+	width:90%;
+	padding-left:2%;
+	padding-right: 2%;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	color:#666666;
+	text-align:right;
+}
+
+.tagline > p {
+	font-size: 0.8em;
+}
+
+#checkbox {
+	position: relative;
+	vertical-align:middle;
+	bottom: 1px;
+}
+
+.options{
+	font-family: arial, sans-serif;
+	text-align:center;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	white-space: nowrap;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#scrollbox{
+	display:flex;
+	justify-content:center;
+	left:0;
+	right:0;
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+	height:33%;
+
+}
+
+#wordbox {
+	position: relative;
+	font-family: Helvetica, sans-serif;
+	text-align: center;
+	width: 80%;
+	height: 100%;
+	padding-left: 50px;
+	padding-right: 50px;
+	font-size: 300px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+#scroll_left, #scroll_right{
+	width:100px;
+	height:100%;
+	display:flex;
+	justify-content:center;
+	flex-direction: column;
+	font-size:48px;
+}
+
+#file {
+	width:0.1px;
+	height:0.1px;
+	opacity:0;
+}
